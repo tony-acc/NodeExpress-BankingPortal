@@ -4,10 +4,9 @@
     <a href="/profile">Profile</a>
 </div>
 
-<% Object.keys(accounts).forEach(function(account){ %>
-    <%- include('summary', {account: account}); %>
-    <% }); 
-%>
+<%- include('summary', { account: accounts.checking }) %>
+<%- include('summary', { account: accounts.savings }) %>
+<%- include('summary', { account: accounts.credit }) %>
 
 <br><a href="/transfer">Transfer</a>
 <%- include('footer') %>
