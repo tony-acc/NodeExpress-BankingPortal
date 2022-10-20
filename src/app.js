@@ -68,12 +68,12 @@ app.post('/transfer', (req, res) => {
 	accounts[fromAcc].balance = newFromBalance
 	accounts[toAcc].balance = newToBalance
 
-	accountsJSON = JSON.stringify(accounts)
+	const accountsJSON = JSON.stringify(accounts)
 
 	fs.writeFileSync(
-		path.join(__dirname, 'json/accounts.json'),
+		path.join(__dirname, 'json', 'accounts.json'),
 		accountsJSON,
-		{ encoding: 'utf8' }
+		'utf8'
 	)
 
 	res.render('transfer', { message: 'Transfer Completed' })
@@ -95,12 +95,12 @@ app.post('/payment', (req, res) => {
 	accounts.credit.balance = newCreditBalance
 	accounts.credit.available = newCreditAvailable
 
-	accountsJSON = JSON.stringify(accounts)
+	const accountsJSON = JSON.stringify(accounts)
 
 	fs.writeFileSync(
-		path.join(__dirname, 'json/accounts.json'),
+		path.join(__dirname, 'json', 'accounts.json'),
 		accountsJSON,
-		{ encoding: 'utf8' }
+		'utf8'
 	)
 
 	res.render('payment', {
